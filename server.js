@@ -1,15 +1,13 @@
-// server.js
 const express = require("express");
 const ImageKit = require("imagekit");
 
 const app = express();
 
 const imagekit = new ImageKit({
-  publicKey: process.env.IMAGEKIT_ID,
-  privateKey: process.env.PRIVATE_API_KEY,
-  urlEndpoint: process.env.IMAGEKIT_PUBLIC_URL_ENDPOINT,
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT
 });
-
 
 app.get("/auth", (req, res) => {
   const authParams = imagekit.getAuthenticationParameters();
